@@ -24,7 +24,12 @@ namespace WindowsFormsApp2
             string username = textBox1.Text;
             string password = textBox2.Text;
 
-            
+            if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
+              {
+                MessageBox.Show("Username and Password fields cannot be empty.");
+                return;
+              } 
+
             Regex regex = new Regex(@"^[a-zA-Z0-9_.]+$");
             if (!regex.IsMatch(username))
             {
